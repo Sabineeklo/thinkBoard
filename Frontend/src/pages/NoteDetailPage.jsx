@@ -1,6 +1,6 @@
 import React from 'react'
 
-function NoteDetailPage() {
+const NoteDetailPage = () => {
   return (
     <div>NoteDetailPage</div>
   )
