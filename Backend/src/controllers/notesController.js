@@ -39,7 +39,6 @@ export const createNote = async (req, res) => {
 };
 
 export const updateNote = async (req, res) => {
-  // res.status(200).json({ message: 'Note updated successfully' });
    try {
     const { id } = req.params;
     const { title, content } = req.body;
@@ -61,11 +60,11 @@ export const updateNote = async (req, res) => {
   }
 };
 
-export const deleteNote = (req, res) => {
+export const deleteNote = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const deletedNote = Note.findByIdAndDelete(id);
+    const deletedNote = await Note.findByIdAndDelete(id);
 
     if (!deletedNote) {
       return res.status(404).json({ message: 'Note not found' });
